@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from . models import Category
+from . models import Category, Post
 
 
 def index(request):
@@ -12,8 +12,11 @@ def index(request):
 
 def post(request):    
     category_list = Category.objects.all().order_by('name')
+    post_list = Post.objects.all()
+
     context = {
-        'categories': category_list
+        'categories': category_list,
+        'posts': post_list
     }
     return render(request, 'post.html', context)
 

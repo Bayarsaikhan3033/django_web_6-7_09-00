@@ -40,8 +40,9 @@ li a:hover:not(.active) {
 
 <ul>
   <li><a href="http://127.0.0.1:8000/">Нүүр хуудас</a></li>
-  <li><a href="http://127.0.0.1:8000/about">Бидний тухай</a></li>
-  <li><a href="http://127.0.0.1:8000/post">Мэдээ</a></li>
+  {% for i in categories %}
+    <li><a href="{% url i.path %}">{{ i.name }}</a></li>
+  {% endfor %}
 </ul>
 
 <div style="padding:20px;margin-top:30px;">

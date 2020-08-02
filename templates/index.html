@@ -39,7 +39,7 @@ li a:hover:not(.active) {
 <body>
 
 <ul>
-  <li><a href="http://127.0.0.1:8000/">Нүүр хуудас</a></li>
+  <li><a href="{% url 'index' %}">Нүүр хуудас</a></li>
   {% for i in categories %}
     <li><a href="{% url 'posts' id=i.id %}">{{ i.name }}</a></li>
   {% endfor %}

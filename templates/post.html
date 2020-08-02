@@ -41,13 +41,13 @@ li a:hover:not(.active) {
 <ul>
   <li><a href="http://127.0.0.1:8000/">Нүүр хуудас</a></li>
   {% for i in categories %}
-    <li><a href="{% url 'posts' %}">{{ i.name }}</a></li>
+    <li><a href="{% url 'posts' id=i.id %}">{{ i.name }}</a></li>
   {% endfor %}
 </ul>
 
 <div style="padding:20px;margin-top:30px;">
   {% for i in posts %}
-    <img src="{{ i.image.url }}" alt="" srcset="">
+    <img src="{{ i.image.url }}" alt="" srcset="" width="400" height="300">
     <h3>{{ i.title }} {{ i.created }}</h3>
     <h4>{{ i.category }}</h4>
     <p>{{ i.shorter }}</p>

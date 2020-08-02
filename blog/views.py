@@ -10,9 +10,11 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-def post(request):    
+def post(request, id):
+    print('category id --->', id)    
     category_list = Category.objects.all().order_by('name')
-    post_list = Post.objects.all()
+    
+    post_list = Post.objects.filter(category__id =id)
 
     context = {
         'categories': category_list,
